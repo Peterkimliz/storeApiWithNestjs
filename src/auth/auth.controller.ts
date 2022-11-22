@@ -4,8 +4,7 @@ import { SignInDto, SignUpDto } from "./dtos";
 
 @Controller("auth")
 export class AuthController{
-
-    constructor(private authService:AuthService){}
+  constructor(private authService:AuthService){}
  
     @Post("signup")
     signUp(@Body()  dto:SignUpDto){
@@ -14,8 +13,8 @@ export class AuthController{
     }
 
     @Post("signin")
-    signIn(){
-        return this.authService.signIn()
+    signIn(@Body() dto:SignInDto){
+        return this.authService.signIn(dto)
     }
 }
 
